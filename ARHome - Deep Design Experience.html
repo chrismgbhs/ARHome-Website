@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<!-- saved from url=(0114)file:///C:/Users/chris/AppData/Local/Temp/MicrosoftEdgeDownloads/a89ff2fb-81b5-4830-820e-48fd5a4de5f2/index-3.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARHome - Deep Design Experience</title>
+
+<style>
+:root{
+    --bg-alabaster:#FDFBF7;
+    --bg-warm:#F4EFE6;
+    --bg-darker:#EAE2D6;
+    --text-primary:#2C2825;
+    --text-secondary:#6B6258;
+    --accent-gold:#D4AF37;
+    --accent-glow:rgba(212,175,55,.4);
+    --card-bg:rgba(255,255,255,.65);
+    --border-soft:rgba(232,224,213,.6);
+    --transition:all .4s cubic-bezier(.25,.8,.25,1);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    color:var(--text-primary);
+    overflow-x:hidden;
+    background:
+    linear-gradient(to right, rgba(107,98,88,.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(107,98,88,.03) 1px, transparent 1px),
+    linear-gradient(-45deg,var(--bg-alabaster),var(--bg-warm),var(--bg-darker),var(--bg-alabaster));
+    background-size:50px 50px,50px 50px,400% 400%;
+    animation:gradientShift 18s ease infinite;
+}
+
+@keyframes gradientShift{
+    0%{background-position:0% 50%,0% 50%,0% 50%;}
+    50%{background-position:0% 50%,0% 50%,100% 50%;}
+    100%{background-position:0% 50%,0% 50%,0% 50%;}
+}
+
+h1,h2,h3{
+    font-family:'Playfair Display',serif;
+}
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1.2rem 5%;
+    background:rgba(253,251,247,.7);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border-soft);
+    z-index:1000;
+}
+
+.logo{
+    font-size:1.7rem;
+    font-weight:700;
+    text-decoration:none;
+    color:var(--text-primary);
+    font-family:'Playfair Display',serif;
+}
+
+.logo span{
+    color:var(--accent-gold);
+}
+
+nav a{
+    text-decoration:none;
+    margin:0 1rem;
+    color:var(--text-secondary);
+    transition:var(--transition);
+}
+
+nav a:hover{
+    color:var(--accent-gold);
+}
+
+.cta-btn{
+    background:var(--accent-gold);
+    color:#fff;
+    text-decoration:none;
+    padding:.8rem 1.8rem;
+    border-radius:40px;
+    display:inline-block;
+    box-shadow:0 4px 15px var(--accent-glow);
+    transition:var(--transition);
+}
+
+.cta-btn:hover{
+    transform:translateY(-3px);
+}
+
+section{
+    padding:8rem 5% 4rem;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:4rem;
+    padding:8rem 6% 3rem;
+}
+
+.hero-content{
+    flex:1;
+    max-width:620px;
+}
+
+.hero h1{
+    font-size:4.3rem;
+    line-height:1.1;
+    margin-bottom:1.5rem;
+}
+
+.hero p{
+    color:var(--text-secondary);
+    font-size:1.15rem;
+    margin-bottom:2rem;
+}
+
+.hero-image-frame{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero-image-frame img{
+    width:100%;
+    max-width:760px;
+    object-fit:contain;
+    filter:
+    drop-shadow(0 30px 60px rgba(0,0,0,.12))
+    saturate(1.05);
+    animation:floatImage 5s ease-in-out infinite;
+}
+
+@keyframes floatImage{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-12px);}
+    100%{transform:translateY(0px);}
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:4rem;
+}
+
+.section-heading h2{
+    font-size:2.8rem;
+    margin-bottom:1rem;
+}
+
+.section-heading p{
+    max-width:700px;
+    margin:auto;
+    color:var(--text-secondary);
+}
+
+/* PILLARS */
+
+.pillars-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:2rem;
+}
+
+.pillar-card{
+    background:var(--card-bg);
+    border:1px solid var(--border-soft);
+    padding:2.5rem;
+    border-radius:30px;
+    backdrop-filter:blur(14px);
+    transition:var(--transition);
+}
+
+.pillar-card:hover{
+    transform:translateY(-8px);
+    background:#fff;
+}
+
+.pillar-num{
+    color:var(--accent-gold);
+    font-size:2.2rem;
+    margin-bottom:1rem;
+}
+
+/* SANDBOX */
+
+.sandbox-wrapper{
+    background:rgba(255,255,255,.45);
+    padding:3rem;
+    border-radius:40px;
+    backdrop-filter:blur(20px);
+}
+
+.sandbox-container{
+    display:flex;
+    gap:3rem;
+}
+
+.sandbox-view{
+    flex:1.6;
+    min-height:500px;
+    border-radius:28px;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    overflow:hidden;
+    transition:.4s ease;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+
+.tech-overlay{
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:rgba(0,0,0,.65);
+    color:#fff;
+    padding:1rem 1.2rem;
+    border-radius:14px;
+    font-family:monospace;
+    font-size:.85rem;
+}
+
+.tech-overlay span{
+    color:var(--accent-gold);
+}
+
+.sandbox-controls{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:2rem;
+}
+
+.control-group h4{
+    margin-bottom:1rem;
+    letter-spacing:1px;
+}
+
+.option-picker{
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+}
+
+.picker-btn{
+    padding:1rem 1.3rem;
+    border:none;
+    border-radius:18px;
+    cursor:pointer;
+    background:rgba(255,255,255,.8);
+    transition:var(--transition);
+    text-align:left;
+    font-size:1rem;
+}
+
+.picker-btn:hover{
+    transform:translateX(6px);
+}
+
+.picker-btn.active{
+    background:var(--text-primary);
+    color:#fff;
+}
+
+/* WORKFLOW */
+
+.workflow-stack{
+    display:flex;
+    flex-direction:column;
+    gap:2.5rem;
+    max-width:900px;
+    margin:0 auto;
+}
+
+.workflow-step{
+    display:flex;
+    gap:2rem;
+    align-items:flex-start;
+    background:var(--card-bg);
+    padding:2.5rem;
+    border-radius:28px;
+    border:1px solid var(--border-soft);
+    backdrop-filter:blur(12px);
+    transition:var(--transition);
+}
+
+.workflow-step:hover{
+    background:#fff;
+    transform:translateX(5px);
+}
+
+.step-badge{
+    background:var(--text-primary);
+    color:#fff;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:600;
+    flex-shrink:0;
+}
+
+/* DESIGNERS */
+
+.designer-slider{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:2.5rem;
+}
+
+.designer-card{
+    background:var(--card-bg);
+    border-radius:24px;
+    overflow:hidden;
+    border:1px solid var(--border-soft);
+    backdrop-filter:blur(10px);
+    transition:var(--transition);
+}
+
+.designer-card:hover{
+    transform:translateY(-5px);
+    background:#fff;
+}
+
+.designer-img{
+    height:240px;
+    background-size:cover;
+    background-position:center;
+}
+
+.designer-info{
+    padding:2rem;
+    position:relative;
+}
+
+.badge-verified{
+    position:absolute;
+    top:-15px;
+    right:20px;
+    background:var(--accent-gold);
+    color:#fff;
+    padding:.4rem 1.2rem;
+    border-radius:20px;
+    font-size:.75rem;
+    font-weight:600;
+}
+
+.specialty{
+    font-size:.85rem;
+    color:var(--accent-gold);
+    text-transform:uppercase;
+    font-weight:600;
+    margin-bottom:1rem;
+}
+
+.tags{
+    display:flex;
+    gap:.5rem;
+    flex-wrap:wrap;
+    margin-top:1rem;
+}
+
+.tag{
+    background:rgba(0,0,0,.05);
+    padding:.4rem 1rem;
+    border-radius:20px;
+    font-size:.8rem;
+}
+
+/* SHOWCASE & ADVERTISEMENT */
+
+.showcase-stack {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+}
+
+.poster-container {
+    width: 100%;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,.06);
+    border: 1px solid var(--border-soft);
+    transition: var(--transition);
+}
+
+.poster-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px rgba(214,175,55,.15);
+}
+
+.poster-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.video-container {
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 25px 55px rgba(0,0,0,.12);
+    border: 1px solid var(--border-soft);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:6rem;
+    background:var(--text-primary);
+    color:#fff;
+    text-align:center;
+    padding:5rem 5%;
+    border-radius:40px 40px 0 0;
+}
+
+footer p{
+    opacity:.7;
+    margin-top:1rem;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:980px){
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .sandbox-container{
+        flex-direction:column;
+    }
+
+    nav{
+        display:none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="file:///C:/Users/chris/AppData/Local/Temp/MicrosoftEdgeDownloads/a89ff2fb-81b5-4830-820e-48fd5a4de5f2/index-3.html#" class="logo"><span>AR</span>Home</a>
+
+    <nav>
+        <a href="file:///C:/Users/chris/AppData/Local/Temp/MicrosoftEdgeDownloads/a89ff2fb-81b5-4830-820e-48fd5a4de5f2/index-3.html#core-identity">Our Pillars</a>
+        <a href="file:///C:/Users/chris/AppData/Local/Temp/MicrosoftEdgeDownloads/a89ff2fb-81b5-4830-820e-48fd5a4de5f2/index-3.html#sandbox">Live Sandbox</a>
+        <a href="file:///C:/Users/chris/AppData/Local/Temp/MicrosoftEdgeDownloads/a89ff2fb-81b5-4830-820e-48fd5a4de5f2/index-3.html#workflow">Journey</a>
+        <a href="file:///C:/Users/chris/AppData/Local/Temp/MicrosoftEdgeDownloads/a89ff2fb-81b5-4830-820e-48fd5a4de5f2/index-3.html#marketplace">Hire a Pro</a>
+    </nav>
+
+    <a href="file:///C:/Users/chris/AppData/Local/Temp/MicrosoftEdgeDownloads/a89ff2fb-81b5-4830-820e-48fd5a4de5f2/index-3.html#sandbox" class="cta-btn">Experience AR</a>
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+        <h1>No Hallucinations.<br>Just Real Spaces.</h1>
+
+        <p>
+            Step away from speculative AI guesswork. ARHome locks directly onto physical structural constraints to overlay validated product blueprints and real texture physics seamlessly.
+        </p>
+
+        <a href="file:///C:/Users/chris/AppData/Local/Temp/MicrosoftEdgeDownloads/a89ff2fb-81b5-4830-820e-48fd5a4de5f2/index-3.html#sandbox" class="cta-btn">
+            Test the Simulator
+        </a>
+    </div>
+
+    <div class="hero-image-frame">
+        <img src="./ARHome - Deep Design Experience_files/iHsi3Hi.jpeg" alt="Furniture Preview">
+    </div>
+
+</section>
+
+<section id="core-identity">
+
+    <div class="section-heading">
+        <h2>The Framework of Precision</h2>
+
+        <p>
+            We engineered the gap out of spatial planning. ARHome is built on concrete metrics and structural truth.
+        </p>
+    </div>
+
+    <div class="pillars-grid">
+
+        <div class="workflow-step" style="display:none;"></div> <div class="pillar-card">
+            <div class="pillar-num">01</div>
+            <h3>Millimeter Integrity</h3>
+
+            <p>
+                Our tracking pipeline benchmarks coordinates directly off structural baseboards down to the exact millimeter.
+            </p>
+        </div>
+
+        <div class="pillar-card">
+            <div class="pillar-num">02</div>
+            <h3>Physical Finishes Only</h3>
+
+            <p>
+                Every texture inside our ecosystem is digitized from authentic production lots matching real lighting behavior.
+            </p>
+        </div>
+
+        <div class="pillar-card">
+            <div class="pillar-num">03</div>
+            <h3>Live Supply Logistics</h3>
+
+            <p>
+                What you visualize is verified available in real inventory systems and dispatch pipelines.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="sandbox">
+
+    <div class="section-heading">
+        <h2>The App Experience, Live.</h2>
+
+        <p>
+            Choose structural finishes and watch the layout update instantly.
+        </p>
+    </div>
+
+    <div class="sandbox-wrapper">
+
+        <div class="sandbox-container">
+
+            <div class="sandbox-view" id="roomView" style="background-image:url(&#39;https://i.imgur.com/utVBEJa.png&#39;)">
+
+                <div class="tech-overlay">
+                    FLOOR:
+                    <span id="floorLabel">WARM OAK</span>
+
+                    <br>
+
+                    ASSET:
+                    <span id="assetLabel">VELVET SOFA</span>
+                </div>
+
+            </div>
+
+            <div class="sandbox-controls">
+
+                <div class="control-group">
+
+                    <h4>Select Floor Foundation</h4>
+
+                    <div class="option-picker">
+
+                        <button class="picker-btn active" onclick="changeTexture(&#39;oak&#39;,&#39;Warm Oak&#39;,this)">
+                            Warm Oak
+                        </button>
+
+                        <button class="picker-btn" onclick="changeTexture(&#39;marble&#39;,&#39;Calacatta Marble&#39;,this)">
+                            Marble
+                        </button>
+
+                        <button class="picker-btn" onclick="changeTexture(&#39;concrete&#39;,&#39;Polished Concrete&#39;,this)">
+                            Concrete
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="control-group">
+
+                    <h4>Drop Physical Asset</h4>
+
+                    <div class="option-picker">
+
+                        <button class="picker-btn active" onclick="changeFurniture(&#39;sofa&#39;,&#39;Accent Chair&#39;,this)">
+                            Minimalist Accent Chair
+                        </button>
+
+                        <button class="picker-btn" onclick="changeFurniture(&#39;chair&#39;,&#39;Velvet Sofa&#39;,this)">
+                            Velvet Sofa
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="workflow">
+
+    <div class="section-heading">
+        <h2>The Journey From Scan to Reality</h2>
+
+        <p>
+            Our ecosystem eliminates the fragmentation between imagining an elite home workspace and structurally materializing it.
+        </p>
+    </div>
+
+    <div class="workflow-stack">
+
+        <div class="workflow-step">
+            <div class="step-badge">1</div>
+
+            <div>
+                <h3>Spatial Mapping Calibration</h3>
+
+                <p>
+                    Launch the canvas. ARHome actively indexes wall intersections, windows, and obstacles to build a dimensionally accurate room model.
+                </p>
+            </div>
+        </div>
+
+        <div class="workflow-step">
+            <div class="step-badge">2</div>
+
+            <div>
+                <h3>Material Dynamic Prototyping</h3>
+
+                <p>
+                    Instantly experiment with layouts, furniture, and material finishes inside realistic room simulations.
+                </p>
+            </div>
+        </div>
+
+        <div class="workflow-step">
+            <div class="step-badge">3</div>
+
+            <div>
+                <h3>Architectural Dispatch</h3>
+
+                <p>
+                    Export your room design to furniture partners and professional interior designers for implementation.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="marketplace">
+
+    <div class="section-heading">
+        <h2>Hire an Interior Architect</h2>
+
+        <p>
+            Instantly synchronize your spatial blueprints with vetted professional designers.
+        </p>
+    </div>
+
+    <div class="designer-slider">
+
+        <div class="designer-card">
+
+            <div class="designer-img" style="background-image:url(&#39;https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=500&amp;q=80&#39;);">
+            </div>
+
+            <div class="designer-info">
+
+                <div class="badge-verified">
+                    Verified Pro
+                </div>
+
+                <h3>Kyla Luxer</h3>
+
+                <div class="specialty">
+                    Residential Specialist
+                </div>
+
+                <p>
+                    Expert in maximizing warm natural lighting and crafting sanctuary-inspired interiors.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Minimalist</span>
+                    <span class="tag">Scandinavian</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="designer-card">
+
+            <div class="designer-img" style="
+background-image:url(&#39;https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=500&amp;q=80&#39;);
+background-size:75%;
+background-position:center 40%;
+">
+            </div>
+
+            <div class="designer-info">
+
+                <div class="badge-verified">
+                    Verified Pro
+                </div>
+
+                <h3>Marcus Velasco</h3>
+
+                <div class="specialty">
+                    Material Architecture
+                </div>
+
+                <p>
+                    Specializes in large-scale floor transformations, luxury marble installations, and sustainable design.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Industrial</span>
+                    <span class="tag">Luxury Marble</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="campaign-showcase">
+    
+    <div class="section-heading">
+        <h2>The Vision in Motion</h2>
+        <p>Explore our official architectural product layout blueprint and theatrical preview campaign.</p>
+    </div>
+
+    <div class="showcase-stack">
+        
+        <div class="poster-container">
+            <img src="./ARHome - Deep Design Experience_files/L6H2ESV.jpeg" alt="ARHome Official Product Advertisement Poster">
+        </div>
+
+        <div class="video-container">
+            <iframe src="./ARHome - Deep Design Experience_files/TAOzMa5GMGQ.html" title="ARHome Commercial Preview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+            </iframe>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="logo" style="color:#fff;">
+        <span>AR</span>Home
+    </div>
+
+    <p>Built by SAINT SOLUTIONS</p>
+
+    <p>
+        © 2026 All architectural data structured via real material integrations.
+    </p>
+
+</footer>
+
+<script>
+
+const views = {
+    oak_sofa:'https://i.imgur.com/utVBEJa.png',
+    oak_chair:'https://i.imgur.com/OBhlBGf.png',
+    marble_sofa:'https://i.imgur.com/a/fHLAqzz.png',
+    marble_chair:'https://i.imgur.com/yAn6hK2.png',
+    concrete_sofa:'https://i.imgur.com/a/oMVDn4Q.png',
+    concrete_chair:'https://i.imgur.com/xpAwkcS.png'
+};
+
+let currentTextureKey = 'oak';
+let currentFurnitureKey = 'sofa';
+
+function updateSandbox(){
+
+    const view = document.getElementById('roomView');
+
+    view.style.opacity = '.6';
+    view.style.transform = 'scale(.98)';
+
+    setTimeout(() => {
+
+        const viewKey =
+        `${currentTextureKey}_${currentFurnitureKey}`;
+
+        view.style.backgroundImage =
+        `url('${views[viewKey]}')`;
+
+        view.style.opacity = '1';
+        view.style.transform = 'scale(1)';
+
+    },180);
+}
+
+function changeTexture(key,labelText,btn){
+
+    currentTextureKey = key;
+
+    document.getElementById('floorLabel')
+    .innerText = labelText.toUpperCase();
+
+    clearActive(btn);
+
+    updateSandbox();
+}
+
+function changeFurniture(key,labelText,btn){
+
+    currentFurnitureKey = key;
+
+    document.getElementById('assetLabel')
+    .innerText = labelText.toUpperCase();
+
+    clearActive(btn);
+
+    updateSandbox();
+}
+
+function clearActive(clickedBtn){
+
+    const parent = clickedBtn.parentElement;
+
+    const buttons =
+    parent.querySelectorAll('.picker-btn');
+
+    buttons.forEach(btn =>
+        btn.classList.remove('active')
+    );
+
+    clickedBtn.classList.add('active');
+}
+
+</script>
+
+
+</body></html>
